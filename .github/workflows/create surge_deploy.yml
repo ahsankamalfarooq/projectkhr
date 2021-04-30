@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - nane: Insatll NodeJS
+      - name: Insatll NodeJS
         uses: actions/setup-node@v2-beta
         with:
            node-version: 12
@@ -32,13 +32,13 @@ jobs:
        with:
            cmd: install
            
-     - nane: Build React App
+     - name: Build React App
        run: yarn build
        
-     - nane: Install Surge
+     - name: Install Surge
        run: npm install -global surge
        
-     - nane: Deploy to Surge
+     - name: Deploy to Surge
        run: surge ./build projectkhr.surge.su ${{ secrets.SURGE_TOKEN }}
        
        
